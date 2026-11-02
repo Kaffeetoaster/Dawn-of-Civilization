@@ -109,8 +109,15 @@ def numPlotListButtons():
 	return mainInterface.numPlotListButtons()
 
 techChooser = CvTechChooser.CvTechChooser()
+
+# begin Kaffeetoaster edit
+import CvPediaMainExternal
+TechChooserExternal = CvPediaMainExternal.CvTechChooserExternal()
+# end Kaffeetoaster edit
+
 def showTechChooser():
 	if CyGame().getActivePlayer() > -1:
+		TechChooserExternal.CreateTechChooser()
 		techChooser.interfaceScreen()
 
 hallOfFameScreen = CvHallOfFameScreen.CvHallOfFameScreen(HALL_OF_FAME)
@@ -296,6 +303,10 @@ def showVictoryScreen():
 		victoryScreen.interfaceScreen()
 
 import CvPediaMain
+# begin Kaffeetoaster edit
+import CvPediaMainExternal
+pediaMainScreenExternal = CvPediaMainExternal.CvPediaMainExternal()
+# end Kaffeetoaster edit
 import CvPediaHistory
 
 pediaMainScreen = None
@@ -381,6 +392,8 @@ def linkToPedia(argsList):
 
 
 def pediaShow():
+	pediaMainScreenExternal.CreateCivilopedia()
+	
 	createCivilopedia()
 	return pediaMainScreen.pediaShow()
 
